@@ -14,3 +14,22 @@ Créons un nouveau fichier, par exemple main.ts, pour séparer la logique de dé
 
 Pour charger nos modules, il nous faudra donc s’appuyer sur un outil : SystemJS. SystemJS est un petit chargeur de modules : tu l’ajoutes (statiquement) dans ta page HTML, tu lui indiques où sont situés les modules sur le serveur, et tu charges l’un d’eux. Il déterminera automatiquement les dépendances entre les modules, et téléchargera ceux utilisés par ton application.
 
+Dernière petite fonctionnalité : que se passe-t-il si mon objet user est en fait récupéré depuis le
+serveur, et donc indéfini dans mon composant au début ? Que pouvons-nous faire pour éviter les
+erreurs quand le template est compilé ?
+
+Et nous n’avons plus d’erreur ! Le ?. est parfois appelé "Safe Navigation Operator" (opérateur de
+navigation sûre).
+Ainsi on peut écrire nos templates plus sereinement, et être assurés qu’ils vont se comporter
+correctement.
+,
+
+<component [property]="doSomething()"></component>
+et
+<component (event)="doSomething()"></component>
+Dans le premier cas de binding de propriété, la valeur doSomething() est une expression, et sera
+évaluée à chaque cycle de détection de changement pour déterminer si la propriété doit être
+modifiée.
+Dans le second cas de binding d’événement, la valeur doSomething() est une instruction (statement),
+et ne sera évaluée que lorsque l’événement est déclenché.
+
