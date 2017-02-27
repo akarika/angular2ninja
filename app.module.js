@@ -11,9 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
+var common_1 = require('@angular/common');
+var ponies_component_1 = require('./ponies.component');
 var api_service_1 = require('./api.service');
 var fake_service_1 = require('./fake.service');
 var race_service_1 = require('./race.service');
+var greeting_component_1 = require('./greeting.component');
+var pipe_transform_1 = require("./pipe.transform");
 //objet de configuration
 var AppModule = (function () {
     function AppModule() {
@@ -22,9 +26,9 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule],
             //declaration des modules d utilisation
-            declarations: [app_component_1.PonyRacerAppComponent],
+            declarations: [app_component_1.PonyRacerAppComponent, ponies_component_1.PoniesComponent, greeting_component_1.AsyncGrettingComponent, pipe_transform_1.FromNowPipe],
             //sur quel component booter
-            providers: [api_service_1.ApiService, { provide: race_service_1.RaceService, useClass: fake_service_1.FakeRaceService }],
+            providers: [api_service_1.ApiService, { provide: race_service_1.RaceService, useClass: fake_service_1.FakeRaceService }, common_1.JsonPipe],
             bootstrap: [app_component_1.PonyRacerAppComponent]
         }), 
         __metadata('design:paramtypes', [])

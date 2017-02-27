@@ -9,23 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var race_service_1 = require('./race.service');
-var PonyRacerAppComponent = (function () {
-    //numberOfUsers: number = 146;
-    function PonyRacerAppComponent(raceService) {
-        this.raceService = raceService;
+var AsyncGrettingComponent = (function () {
+    function AsyncGrettingComponent() {
+        this.asyncGretting = new Promise(function (resolve) {
+            window.setTimeout(function () { return resolve('hello'); }, 1000);
+        });
     }
-    PonyRacerAppComponent.prototype.list = function () {
-        return this.raceService.list()[0].name;
-    };
-    PonyRacerAppComponent = __decorate([
+    AsyncGrettingComponent = __decorate([
         core_1.Component({
-            selector: 'ponyracer-app',
-            template: "<h1>Ponyracer</h1>\n<p>{{list()}}</p>\n<ns-ponies></ns-ponies>\n<ns-gretting></ns-gretting>\n"
+            selector: 'ns-gretting',
+            template: '<div>{{asyncGretting | async}}</div>'
         }), 
-        __metadata('design:paramtypes', [race_service_1.RaceService])
-    ], PonyRacerAppComponent);
-    return PonyRacerAppComponent;
+        __metadata('design:paramtypes', [])
+    ], AsyncGrettingComponent);
+    return AsyncGrettingComponent;
 }());
-exports.PonyRacerAppComponent = PonyRacerAppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.AsyncGrettingComponent = AsyncGrettingComponent;
+//# sourceMappingURL=greeting.component.js.map

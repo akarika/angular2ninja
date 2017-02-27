@@ -33,3 +33,6 @@ modifiée.
 Dans le second cas de binding d’événement, la valeur doSomething() est une instruction (statement),
 et ne sera évaluée que lorsque l’événement est déclenché.
 
+En règle générale, on peut dire que si un seul composant a besoin d’un service donné, c’est une
+bonne idée de définir ce service dans l’injecteur du composant, via l’attribut providers. Si une
+dépendance peut être utilisée ailleurs dans l’application, on la déclare dans le module racine.

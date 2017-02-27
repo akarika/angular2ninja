@@ -9,19 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+// you need to import the pipe you want to use
+var common_1 = require('@angular/common');
 var PoniesComponent = (function () {
-    function PoniesComponent() {
-        this.ponies = [{ name: 'Rainbow Dash' }, { name: 'Pinkie Pie' }];
+    // inject the Pipe you want
+    function PoniesComponent(jsonPipe) {
+        this.size = 2;
+        this.birthday = new Date();
+        this.ponies = [
+            { name: 'Rainbow Dash' },
+            { name: 'Pinkie Pie' },
+            { name: 'Fluttershy' }
+        ];
+        // and then call the transform method on it
+        this.poniesAsJson = jsonPipe.transform(this.ponies);
     }
-    PoniesComponent.prototype.refreshPonies = function () {
-        this.ponies = [{ name: 'Fluttershy' }, { name: 'Rarity' }];
-    };
     PoniesComponent = __decorate([
         core_1.Component({
             selector: 'ns-ponies',
-            template: "\n<button (click)=\"refreshPonies()\">Rafraichir</button>\n<ul>\n<li *ngFor=\"let ponie of ponies;let isEven =even\"\n[style.color]=\"isEven?'green':'black'\">\n{{ponie.name}}</li>\n</ul>\n\n"
+            template: "<p>{{poniesAsJson}}</p>\n<p>{{ 'Ninja Squad' | slice:0:size }}</p>\n<div *ngFor=\"let pony of ponies | slice:0:2\">{{pony.name}}</div>\n<p>{{ 'Ninja Squad' | uppercase }}</p>\n<p>{{ 'Ninja Squad' | lowercase }}</p>\n<p>{{1983 | number :'.2'}}</p>\n<p>{{ 10.6 | currency:'EUR' }}</p>\n<!-- will display 'EUR10.60' -->\n<p>{{ 10.6 | currency:'USD':true }}</p>\n<!-- will display '$10.60' -->\n<p>{{ 10.6 | currency:\"EUR\":true:\".2\" }}</p>\n<p>{{ birthday | date:'longDate'}}</p>\n<p>{{ birthday | date:'HH:mm'}}</p>\n"
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [common_1.JsonPipe])
     ], PoniesComponent);
     return PoniesComponent;
 }());

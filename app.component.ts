@@ -1,9 +1,13 @@
 import {Component} from '@angular/core';
 import {RaceService} from './race.service'
+
+
 @Component({
     selector: 'ponyracer-app',
     template: `<h1>Ponyracer</h1>
 <p>{{list()}}</p>
+<ns-ponies></ns-ponies>
+<ns-gretting></ns-gretting>
 `
 
 
@@ -16,7 +20,9 @@ export class PonyRacerAppComponent {
 
     list(){
 
-        return this.raceService.list()[0].name;
+         return this.raceService.list()[0].name;
+
+
 
     }
 }
