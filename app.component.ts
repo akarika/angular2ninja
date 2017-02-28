@@ -4,16 +4,18 @@ import {RaceService} from './race.service'
 
 @Component({
     selector: 'ponyracer-app',
-    template: `<h1>Ponyracer</h1>
+    template: `
 <p>{{list()}}</p>
 <ns-ponies></ns-ponies>
 <ns-gretting></ns-gretting>
+
 `
 
 
 })
 export class PonyRacerAppComponent {
     //numberOfUsers: number = 146;
+    name:string = "roux remy";
     constructor(private raceService: RaceService) {
 
     }

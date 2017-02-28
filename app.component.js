@@ -11,9 +11,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var race_service_1 = require('./race.service');
 var PonyRacerAppComponent = (function () {
-    //numberOfUsers: number = 146;
     function PonyRacerAppComponent(raceService) {
         this.raceService = raceService;
+        //numberOfUsers: number = 146;
+        this.name = "roux remy";
     }
     PonyRacerAppComponent.prototype.list = function () {
         return this.raceService.list()[0].name;
@@ -21,7 +22,7 @@ var PonyRacerAppComponent = (function () {
     PonyRacerAppComponent = __decorate([
         core_1.Component({
             selector: 'ponyracer-app',
-            template: "<h1>Ponyracer</h1>\n<p>{{list()}}</p>\n<ns-ponies></ns-ponies>\n<ns-gretting></ns-gretting>\n"
+            template: "\n<p>{{list()}}</p>\n<ns-ponies></ns-ponies>\n<ns-gretting></ns-gretting>\n\n"
         }), 
         __metadata('design:paramtypes', [race_service_1.RaceService])
     ], PonyRacerAppComponent);

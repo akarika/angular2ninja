@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 // you need to import the pipe you want to use
 import { JsonPipe } from '@angular/common';
+
 @Component({
     selector: 'ns-ponies',
     template: `<p>{{poniesAsJson}}</p>
@@ -14,8 +15,8 @@ import { JsonPipe } from '@angular/common';
 <p>{{ 10.6 | currency:'USD':true }}</p>
 <!-- will display '$10.60' -->
 <p>{{ 10.6 | currency:"EUR":true:".2" }}</p>
-<p>{{ birthday | date:'longDate'}}</p>
-<p>{{ birthday | date:'HH:mm'}}</p>
+<p>{{ birthday | fromNow}}</p>
+
 `
 })
 export class PoniesComponent {

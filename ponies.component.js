@@ -27,7 +27,7 @@ var PoniesComponent = (function () {
     PoniesComponent = __decorate([
         core_1.Component({
             selector: 'ns-ponies',
-            template: "<p>{{poniesAsJson}}</p>\n<p>{{ 'Ninja Squad' | slice:0:size }}</p>\n<div *ngFor=\"let pony of ponies | slice:0:2\">{{pony.name}}</div>\n<p>{{ 'Ninja Squad' | uppercase }}</p>\n<p>{{ 'Ninja Squad' | lowercase }}</p>\n<p>{{1983 | number :'.2'}}</p>\n<p>{{ 10.6 | currency:'EUR' }}</p>\n<!-- will display 'EUR10.60' -->\n<p>{{ 10.6 | currency:'USD':true }}</p>\n<!-- will display '$10.60' -->\n<p>{{ 10.6 | currency:\"EUR\":true:\".2\" }}</p>\n<p>{{ birthday | date:'longDate'}}</p>\n<p>{{ birthday | date:'HH:mm'}}</p>\n"
+            template: "<p>{{poniesAsJson}}</p>\n<p>{{ 'Ninja Squad' | slice:0:size }}</p>\n<div *ngFor=\"let pony of ponies | slice:0:2\">{{pony.name}}</div>\n<p>{{ 'Ninja Squad' | uppercase }}</p>\n<p>{{ 'Ninja Squad' | lowercase }}</p>\n<p>{{1983 | number :'.2'}}</p>\n<p>{{ 10.6 | currency:'EUR' }}</p>\n<!-- will display 'EUR10.60' -->\n<p>{{ 10.6 | currency:'USD':true }}</p>\n<!-- will display '$10.60' -->\n<p>{{ 10.6 | currency:\"EUR\":true:\".2\" }}</p>\n<p>{{ birthday | fromNow}}</p>\n\n"
         }), 
         __metadata('design:paramtypes', [common_1.JsonPipe])
     ], PoniesComponent);
